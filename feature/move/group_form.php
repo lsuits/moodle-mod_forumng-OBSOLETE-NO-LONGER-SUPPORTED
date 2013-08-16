@@ -34,7 +34,7 @@ class mod_forumng_group_form extends moodleform {
 
         // Informational paragraph
         $mform->addElement('static', '', '',
-            get_string('move_group_info', 'forumngfeature_move', $forum->get_name()));
+        get_string('move_group_info', 'forumngfeature_move', $forum->get_name()));
 
         // Get list of allowed groups
         $groups = $this->_customdata->groups;
@@ -44,6 +44,8 @@ class mod_forumng_group_form extends moodleform {
 
         // Hidden fields
         $mform->addElement('hidden', 'd', $this->_customdata->discussionid);
+        $mform->setType('d',PARAM_INT);
+        
         $mform->addElement('hidden', 'clone', $this->_customdata->cloneid);
         $mform->addElement('hidden', 'target', $forum->get_course_module_id());
 

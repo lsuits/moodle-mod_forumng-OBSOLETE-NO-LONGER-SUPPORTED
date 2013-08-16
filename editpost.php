@@ -248,9 +248,15 @@ try {
     // Expand parameter always available
     $params['expand'] = $expand;
     $mform = new mod_forumng_editpost_form('editpost.php',
-        array('params'=>$params, 'isdiscussion'=>$isdiscussion,
-            'forum'=>$forum, 'edit'=>$edit, 'ispost'=>$ispost, 'islock'=>$islock,
-            'post'=>isset($post) ? $post : null, 'isroot'=>$isroot,
+        array(
+            'params'=>$params, 
+            'isdiscussion'=>$isdiscussion,
+            'forum'=>$forum, 
+            'edit'=>$edit, 
+            'ispost'=>$ispost, 
+            'islock'=>$islock,
+            'post'=>isset($post) ? $post : null, 
+            'isroot'=>$isroot,
             'iframe' => $iframe ? true : false,
             'timelimit' => $ispost && $edit && !$post->can_ignore_edit_time_limit()
                 ? $post->get_edit_time_limit() : 0,

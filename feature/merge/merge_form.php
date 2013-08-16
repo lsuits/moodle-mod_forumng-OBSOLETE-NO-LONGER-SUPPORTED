@@ -41,6 +41,9 @@ class mod_forumng_merge_form extends moodleform {
         // Hidden fields
         foreach ($this->_customdata as $param => $value) {
             $mform->addElement('hidden', $param, $value);
+            if(in_array($param, array('d', 'clone'))){
+                $mform->setType($param, PARAM_INT);
+            }
         }
     }
 }

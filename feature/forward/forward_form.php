@@ -63,6 +63,7 @@ class mod_forumng_forward_form extends moodleform {
         // Special field just to tell javascript that we're trying to use the
         // html editor
         $mform->addElement('hidden', 'tryinghtmleditor', can_use_html_editor() ? 1 : 0);
+        $mform->setType('tryinghtmleditor',PARAM_INT);
 
         // Email message
         $mform->addElement('editor', 'message',
@@ -76,10 +77,16 @@ class mod_forumng_forward_form extends moodleform {
             }
         } else {
             $mform->addElement('hidden', 'all', 1);
+            $mform->setType('all',PARAM_INT);
         }
         $mform->addElement('hidden', 'd', $this->_customdata->discussionid);
+        $mform->setType('d',PARAM_INT);
+        
         $mform->addElement('hidden', 'clone', $this->_customdata->cloneid);
+        $mform->setType('clone',PARAM_INT);
+        
         $mform->addElement('hidden', 'postselectform', 1);
+        $mform->setType('postselectform',PARAM_INT);
 
         $this->add_action_buttons(true, get_string('forward', 'forumngfeature_forward'));
     }
