@@ -248,6 +248,7 @@ class mod_forumng_mod_form extends moodleform_mod {
                 $sharegroup[] = $mform->createElement('text', 'originalcmidnumber', '');
                 $mform->addGroup($sharegroup, 'usesharedgroup',
                         get_string('useshared', 'forumng'));
+                $mform->setType('usesharedgroup[originalcmidnumber]', PARAM_INT);
                 $mform->disabledIf('usesharedgroup[originalcmidnumber]',
                         'usesharedgroup[useshared]', 'notchecked');
                 $mform->addHelpButton('usesharedgroup', 'useshared', 'forumng');
